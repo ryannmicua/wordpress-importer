@@ -736,9 +736,6 @@ class WP_Import extends WP_Importer {
 					if ( $key ) {
 						// export gets meta straight from the DB so could have a serialized string
 						if ( ! $value )
-							$value = maybe_unserialize( $meta['value'] );
-
-						if( empty($value))
 							$value = maybe_unserialize( str_replace( array("\r\n", "\r", "\n"), "\r\n", $meta['value'] ) );
 
 						add_post_meta( $post_id, $key, $value );
